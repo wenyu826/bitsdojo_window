@@ -134,9 +134,9 @@ namespace bitsdojo_window {
 
     int getResizeMargin(HWND window)
     {
-        UINT currentDpi = GetDpiForWindow(window);
-        int resizeBorder = GetSystemMetricsForDpi(SM_CXSIZEFRAME, currentDpi);
-        int borderPadding = GetSystemMetricsForDpi(SM_CXPADDEDBORDER, currentDpi);
+        UINT currentDpi = 96; //GetDpiForWindow(window);
+        int resizeBorder = 5; //GetSystemMetricsForDpi(SM_CXSIZEFRAME, currentDpi);
+        int borderPadding = 5; // GetSystemMetricsForDpi(SM_CXPADDEDBORDER, currentDpi);
         bool isMaximized = IsZoomed(window);
         if (isMaximized) {
             return borderPadding;
@@ -251,7 +251,7 @@ namespace bitsdojo_window {
     }
 
     double getScaleFactor(HWND window) {
-        UINT dpi = GetDpiForWindow(window);
+        UINT dpi = 96; // GetDpiForWindow(window);
         return dpi / 96.0;
     }
 
@@ -336,7 +336,7 @@ namespace bitsdojo_window {
 
     void getSizeOnScreen(SIZE* size)
     {
-        UINT dpi = GetDpiForWindow(flutter_window);
+        UINT dpi = 96;// GetDpiForWindow(flutter_window);
         double scale_factor = dpi / 96.0;
         size->cx = static_cast<int>(size->cx * scale_factor);
         size->cy = static_cast<int>(size->cy * scale_factor);

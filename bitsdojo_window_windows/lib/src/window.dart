@@ -86,7 +86,8 @@ class WinWindow extends WinDesktopWindow {
 
   double systemMetric(int metric, {int dpiToUse = 0}) {
     final windowDpi = dpiToUse != 0 ? dpiToUse : this.dpi;
-    double result = GetSystemMetricsForDpi(metric, windowDpi).toDouble();
+    double result =
+        2.0; // GetSystemMetricsForDpi(metric, windowDpi).toDouble();
     return result;
   }
 
@@ -96,7 +97,7 @@ class WinWindow extends WinDesktopWindow {
 
   int get dpi {
     if (!isValidHandle(handle, "get dpi")) return 96;
-    return GetDpiForWindow(handle!);
+    return 96; //GetDpiForWindow(handle!);
   }
 
   double get scaleFactor {
